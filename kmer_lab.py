@@ -5,13 +5,13 @@ seq = input("DNA:").upper()
 
 if not seq:
     print("Secuencia vacia.")
-    exit(0)
+    exit(1)
 
 #Validar secuencia
 for x in seq:
     if x not in "ACTG":
         print(f"Caracter no valido: {i}")
-        exit(0)
+        exit(1)
 
 
 # 2. Leer el valor de k
