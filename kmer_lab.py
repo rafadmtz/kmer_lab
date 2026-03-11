@@ -10,18 +10,48 @@ if not seq:
 #Validar secuencia
 for x in seq:
     if x not in "ACTG":
-        print(f"Caracter no valido: {i}")
+        print(f"Caracter no valido: {x}")
         exit(1)
 
 
 # 2. Leer el valor de k
 k =  int(input("k (int): "))
 
-# 3. Recorrer la secuencia con una ventana de tamañASAo k
+
+
+#Lista para almacenar los k-mers
+gc_kmer=[]
+
+
+# 3. Recorrer la secuencia con una ventana de tamaño k
 for i in range(len(seq) - k + 1):
      
     # 4. Extraer el k-mer de la posición actual
-    kmer = seq[i:i-k]
-
+    kmer = seq[i:i+k]
+    gc_kmer.append(kmer)
+    
     # 5. Mostrar el k-mer
     print(f"Posicion {i} --> {kmer}")
+    
+
+#Variable para almacenar el maximo conteo de GC
+max_gc=0
+    
+    
+# 6. Contar el contenido de GC en cada k-mer y encontrar el maximo   
+for j in gc_kmer:
+    
+    conteo_gc=(j.count("G")+j.count("C"))
+    
+    if conteo_gc > max_gc:
+        max_gc=conteo_gc
+
+
+print("K-mers con mayor contenido de gc")
+
+
+# 7. Mostrar los k-mers con el mayor contenido de GC y su posicion
+for j, k in enumerate(gc_kmer):
+    if (k.count("G")+k.count("C"))==max_gc:
+        print(f"Posicion {j} --> {k}")
+
