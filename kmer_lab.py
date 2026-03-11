@@ -55,3 +55,11 @@ for j, k in enumerate(gc_kmer):
     if (k.count("G")+k.count("C"))==max_gc:
         print(f"Posicion {j} --> {k}")
 
+
+
+# 8. Mostrar la secuencia original y los k-mers con el mayor contenido de GC en formato de ventana deslizante
+print('Ventana deslizante con k-mers')
+
+print(seq)
+for j, k in enumerate(gc_kmer):
+    print(" "*(j)+k)
